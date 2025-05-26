@@ -1,0 +1,332 @@
+
+/* Body & Background */
+body {
+  margin: 0;
+  font-family:  'Comic Neue', cursive;
+  color: #08253616; /* soft gray-blue */
+  background: #52a5c9; /* pale pastel base */
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Cinnamoroll background image with subtle overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://i.pinimg.com/originals/55/64/7b/55647b6d26e03705d41d34202b8cb879.jpg") no-repeat center center;
+  background-size: cover;
+  opacity: 0.3;
+  filter: brightness(70%) saturate(120%);
+  z-index: -2;
+}
+
+/* Soft overlay to improve contrast */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(223, 234, 250, 0.902);
+  z-index: -1;
+}
+
+/* Navigation */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid #4cb4f0;
+  position: relative;
+}
+
+nav h1 {
+  font-size: 2rem;
+  color: #4cb4f0;
+  font-weight: 700;
+  font-family: 'Oswald', cursive, sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+}
+
+nav a {
+  color: #4cb4f0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: #4cb4f0;
+  text-shadow: 0 0 6px #4cb4f0;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 20;
+  left: 1.5rem;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #4cb4f0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    position: fixed;
+    flex-direction: column;
+    background: rgba(223, 234, 250, 0.902);
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    padding-top: 80px;
+    padding-left: 40px;
+    transition: right 0.3s ease;
+    z-index: 10;
+    align-items: flex-start;
+    box-shadow: -5px 0 15px rgba(124, 139, 207, 0.662);
+    margin-top: 70px;
+  }
+
+  nav ul.active {
+    right: 0;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+ .background-wrapper {
+  background: url("CSS_HTML_Test/images/cinnamoroll 4.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  z-index: -2;
+}
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(124, 139, 207, 0.662);
+    display: none;
+    z-index: -1;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+}
+
+/* Main Content */
+main {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Card style sections */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border-left: 6px solid #4cb4f0;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(18, 59, 222, 0.662);
+  color: #4cb4f0;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #4cb4f0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: 'Oswald', cursive, sans-serif;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #0d5cef;
+}
+
+.card a {
+  color: #4cb4f0;
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-shadow 0.3s ease;
+}
+
+.card a:hover {
+  text-shadow: 0 0 8px #71b7f1;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.page-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: block;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  align-items: center;
+  margin: 10px;
+}
+
+.primary-btn {
+  background: #c5e3ff;
+  color: #2b3e4f;
+  border: solid 1px #4cb4f0;
+}
+
+.primary-btn:hover {
+  background: #a4c5ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(7, 42, 112, 0.868);
+  transition: 0.3s;
+}
+
+.secondary-btn {
+  background: rgba(132, 182, 244, 0.136);
+  color: #4cb4f0;
+  border: 1px solid #4cb4f000;
+}
+
+.secondary-btn:hover {
+  background:  rgba(222, 21, 159, 0.043);
+  transform: translateY(-2px);
+  transition:scale(1.05);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Styles specific to about.html */
+.about-section {
+  padding: 1.5rem;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-details {
+  flex: 1;
+  min-width: 250px;
+}
+
+.profile-photo {
+  width: 180px;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(29, 51, 146, 0.751);
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 140px;
+    align-items: center;
+  }
+
+  .about-details {
+    text-align: center;
+  }
+
+  .resume-header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  color: #4cb4f0;
+  border-top: 1px solid #407ee9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
