@@ -1,0 +1,334 @@
+/* Body & Background */
+body {
+  margin: 0;
+  font-family:  'Comic Neue', cursive;
+  color: #4cb4f016; /* Soft periwinkle text */
+  background: #b0daec; /* Soft baby pink background */
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Cinnamoroll background image with subtle overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://static.wikia.nocookie.net/sanrio/images/b/b4/Cinnamoroll_PNG.png") no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  filter: brightness(70%) saturate(120%);
+  z-index: -2;
+}
+
+/* Soft overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(223, 234, 250, 0.902);
+  z-index: -1;
+}
+
+/* Navigation */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid #4cb4f0; /* Light blue border */
+  position: relative;
+}
+
+nav h1 {
+  font-size: 2rem;
+  color: #4cb4f0;
+  font-weight: 700;
+  font-family: 'Oswald', cursive, sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+}
+
+nav a {
+  color: #4cb4f0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: #4cb4f0;
+  text-shadow: 0 0 6px #4cb4f0;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 10px rgba(57, 113, 242, 0.87);
+  display: block;
+}
+
+.project-image img:hover {
+  transform: scale(0.03);
+  transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(8, 86, 242, 0.705);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 20;
+  left: 1.5rem;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #4cb4f0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    position: fixed;
+    flex-direction: column;
+    background: rgba(223, 234, 250, 0.902);
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    padding-top: 80px;
+    padding-left: 40px;
+    transition: right 0.3s ease;
+    z-index: 10;
+    align-items: flex-start;
+    box-shadow: -5px 0 15px rgba(124, 139, 207, 0.662);
+    margin-top: 70px;
+  }
+
+  nav ul.active {
+    right: 0;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(124, 139, 207, 0.662);
+    display: none;
+    z-index: -1;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+}
+
+/* Main Content */
+main {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Card style sections */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border-left: 6px solid #4cb4f0;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(18, 59, 222, 0.662);
+  color: #4cb4f0;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #4cb4f0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: 'Oswald', cursive, sans-serif;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #4cb4f0;
+}
+
+.card a {
+  color: #4cb4f0;
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-shadow 0.3s ease;
+  font-family: 'Oswald', cursive, sans-serif;
+}
+
+.card a:hover {
+  text-shadow: 0 0 8px #4cb4f0;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.page-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #4cb4f0;
+  color: white;
+   box-shadow: 0 4px 12px rgba(230, 178, 214, 0.9);
+}
+
+.primary-btn:hover {
+  background: #cce6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 177, 245, 0.749);
+}
+
+.secondary-btn {
+  background:rgba(247, 212, 236, 0.951);
+  color: #4cb4f0;
+  border: 1px solid #A3C7E4;
+}
+
+.secondary-btn:hover {
+  background: rgba(247, 212, 236, 0.951);
+  transform: translateY(-2px);
+}
+
+/* Project Cards */
+.project {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  color: #4cb4f0;
+  box-shadow: 0 0 8px rgba(94, 177, 245, 0.749);
+}
+
+.project h3 {
+  margin-top: 0;
+  color: #A3C7E4;
+}
+
+.project-showcase {
+  margin-bottom: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.project-tech span {
+  background: rgba(163, 199, 228, 0.471);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #7BA6C9;
+}
+
+.project-type {
+  color: #A3C7E4;
+  font-style: italic;
+  margin-top: -0.5rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  color: #4cb4f0;
+  border-top: 1px solid #84c9f2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px){
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
